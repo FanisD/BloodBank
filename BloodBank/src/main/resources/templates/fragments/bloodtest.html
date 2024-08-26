@@ -1,0 +1,31 @@
+<bloodtest>
+
+    <div th:if="${request}">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Test Date</th>
+                <th>Hemoglobin Levels</th>
+                <th>Iron Levels</th>
+                <th>Blood Pressure Levels</th>
+                <th>Cholesterol Levels</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr th:if="${request.bloodTest}">
+                <td th:text="${request.bloodTest.TestDate}"></td>
+                <td th:text="${request.bloodTest.HemoglobinLevels}"></td>
+                <td th:text="${request.bloodTest.IronLevels}"></td>
+                <td th:text="${request.bloodTest.BloodPressureLevels}"></td>
+                <td th:text="${request.bloodTest.CholesterolLevels}"></td>
+            </tr>
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <a th:href="@{/bloodtest/{id}/new(id=${request.id})}" class="btn btn-primary" role="button" th:unless="${request.bloodTest}">create blood test</a>
+
+</bloodtest>

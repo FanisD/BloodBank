@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:insert="fragments/header :: header"></head>
+
+<body>
+<!-- Include the header fragment -->
+<div th:insert="fragments/menu :: menu"></div>
+<main>
+    <div class="container" >
+        <form action="#" th:action="@{/bloodtest/{id}(id=${request_id})}" th:method="post" th:object="${bloodtest}"
+              method="post">
+
+            <div class="form-group">
+                <input type="hidden" id="id" class="form-control" th:field="*{id}">
+            </div>
+            <div class="form-group">
+                <label for="TestDate">Test Date</label>
+                <input type="date" id="TestDate" class="form-control" th:field="*{TestDate}">
+            </div>
+            <div class="form-group">
+                <label for="HemoglobinLevels">Hemoglobin Levels</label>
+                <input type="text" id="HemoglobinLevels" class="form-control" th:field="*{HemoglobinLevels}">
+            </div>
+            <div class="form-group">
+                <label for="IronLevels">Iron Levels</label>
+                <input type="text" id="IronLevels" class="form-control" th:field="*{IronLevels}">
+            </div>
+            <div class="form-group">
+                <label for="BloodPressureLevels">Blood Pressure Levels</label>
+                <input type="text" id="BloodPressureLevels" class="form-control" th:field="*{BloodPressureLevels}">
+            </div>
+            <div class="form-group">
+                <label for="CholesterolLevels">Cholesterol Levels</label>
+                <input type="text" id="CholesterolLevels" class="form-control" th:field="*{CholesterolLevels}">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</main>
+
+<!-- Include the footer fragment -->
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>
